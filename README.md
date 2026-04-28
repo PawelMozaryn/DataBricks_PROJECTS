@@ -42,3 +42,26 @@ Użycie w databricks
 - pipeline.py przetwarza
 - stats_job.py robi zadanie statystyczne
 - wnioski z projektu (plik txt wymieniający zastosowane rozwiązania)
+
+## Projekt 2 - Wektoryzacja tekstu pod agentów AI
+
+Aby skorzystac z LLMa w celu streszczeniu tekstu uzytkownik musi wkleic caly tekst. To niepraktyczne. 
+Celem projektu jest podzielenie tekstu na fragmenty po 150 slow (pokrywają się), zamiane ich na wektory oddające ich semantyczne znaczenie. 
+Wówczas uzytkownik zadaje pytanie, znajdywane są fragmenty tekstu które najbardziej pasują treścią do pytania, LLM dostaje tylko te fragmenty. 
+
+
+### Schemat postępowania
+
+0. Będę pracował na 3 artykułach naukowych
+lakehouse_paper.pdf   - orginalny artykuł wprowadzający hurtownie danych typu lakehouse
+lakes_paper.pdf  - artykuł o jeziorkach danych
+delta_lake_paper.pdf - artykuł o infrastrukturze delta lake
+
+1. Manualnie obcinam bibliografię z każdego z nich za pomocą prostej funkcji w pythonie
+2. Pipeline przechodzi po każdym pdf czyta pliki PDF (tekst to bronze), dzieli je na chunki (silver)
+3. Embedder z sentence-transformers zamienia chunki na wektory (gold)
+
+### Opis plików
+
+- chunker_pipeline.py pipeline przetwarza, tworzy tabelę srebrną
+- embedder.py robi embedding tabeli srebrnej, tworzy tabelę złotą
