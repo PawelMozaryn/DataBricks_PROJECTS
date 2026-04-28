@@ -42,7 +42,7 @@ embeddings = model.encode(
 
 silver_pd["embedding"] = embeddings.tolist()
 
-# ── Convert back to Spark and save ───────────────────────────────────────────
+
 gold_df = spark.createDataFrame(silver_pd) # nowy spark df
 
 
