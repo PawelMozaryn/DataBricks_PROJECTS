@@ -1,8 +1,13 @@
 # DataBricks_PROJECTS
 To repozytorium zawiera pliki z projektów data-engineeringowych na platformie databricks.
 
+Workspace:
+
 https://dbc-bcc79a29-5dbc.cloud.databricks.com/browse/folders/3972128235345815?o=7474650486611832
 
+Mały Dashboard
+
+https://dbc-bcc79a29-5dbc.cloud.databricks.com/dashboardsv3/01f142df20ae12caaa7d5cb863cdb99e/published?o=7474650486611832
 
 ## PROJEKT 1 - Przykladowy ETL Pipeline.
 
