@@ -1,0 +1,29 @@
+
+
+Pomysł 1
+
+Dla każdego datasetu z folderu 'datasets' wykonaj 
+1. Ekstrakcje do bronzowych tabel (dodane metainfo o czasie przetwarzania)
+2. Czyszczenie do srebrnych tabel (usuwanie NA, onehot, usuwanie wartości bezsensownych ...)
+3. Forma przyjazna regresji do tabel złotych
+3. Trening regresji liniowej Y ~ . na danych w trakcie pipelinu
+4. Raportowanie o ilości utraconych rekordów, estymacja wariancji błędu eps...
+
+Nie udało się. 
+WNIOSEK: PySpark ML nie działa w środowisku Pipelinowym 
+ROZWIĄZANIE: Niech pipeline tylko tworzy tabele. Treningi regresji będą się odbywały w osobnym zadaniu zaplanowanym po pipeline, używając tabel złotych. 
+
+Pomysł 2
+
+Przesuń zadanie ML na osobne zadanie. 
+
+Udało się. Jest OK.
+
+
+ZALETY ZASTOSOWANEGO ROZWIĄZANIA.
+
+1. W zgodzie z nowoczesnymi standardami Medallion - zachowanie 
+2. Idempotentość poprzez nadpisywanie, upewnianie się czy istnieje źródło danych itp.
+3. Partycjoowanie największej tabeli po czasie (gold_main)
+4. Warstwa ML nie w pipelinie, bezpieczniej. 
+5. Samo użycie databricks - uzycie delta lake tables, czyli plików parquet z dodatkowymi meta danymi transakcyjnymi 
